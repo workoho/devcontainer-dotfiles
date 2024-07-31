@@ -1,6 +1,6 @@
-# dotfiles
+# Dev Container dotfiles
 
-dotfiles repository for Workoho Dev Containers, managed with [chezmoi](https://chezmoi.io/).
+dotfiles repository for Dev Containers, managed with [chezmoi](https://chezmoi.io/).
 
 ## License
 
