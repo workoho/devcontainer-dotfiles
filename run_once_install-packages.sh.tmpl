@@ -1,0 +1,5 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+curl -fsSL https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
+oh-my-posh font install meslo
+{{ end -}}
