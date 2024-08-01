@@ -8,7 +8,10 @@
 {{-   $name = .name -}}
 {{- /* Otherwise, if running interactively, prompts for a name */ -}}
 {{- else if $interactive -}}
-{{-   $name = promptString "name" $name -}}
+{{-   writeToStdout "\n\n                          Terminal dotfile Setup\n" -}}
+{{-   writeToStdout "--------------------------------------------------------------------------------\n\n" -}}
+{{-   writeToStdout "ℹ️  Answer the following questions so their data can be integrated to your dotfiles afterwards:\n\n" -}}
+{{-   $name = promptString "Your full name" $name -}}
 {{- end -}}
 
 {{- /* Does the same for the email */ -}}
@@ -16,11 +19,11 @@
 {{- if hasKey . "email" -}}
 {{-   $email = .email -}}
 {{- else if $interactive -}}
-{{-   $email = promptString "email" $email -}}
+{{-   $email = promptString "Your email address" $email -}}
 {{- end -}}
 
 {{- if $interactive -}}
-{{-   writeToStdout "💡 Tip: you can re-enter your name and email with `chezmoi init --data=false`.\n" -}}
+{{-   writeToStdout "💡 Tip: you can re-enter your name and email with `chezmoi init --data=false`.\n\n" -}}
 {{- end -}}
 
 sourceDir: "{{ .chezmoi.sourceDir }}"
@@ -28,3 +31,7 @@ sourceDir: "{{ .chezmoi.sourceDir }}"
 data:
   name: "{{ $name }}"
   email: "{{ $email }}"
+
+edit:
+  command: "code"
+  args: [ "--wait" ]
