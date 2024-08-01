@@ -1,4 +1,4 @@
-# ~/.config/powershell/Microsoft.PowerShell_profile.ps1: executed by the PowerShell console host on startup.
+# ~/.config/powershell/Microsoft.VSCode_profile.ps1: executed by the VSCode Integrated Console on startup.
 
 using namespace System.Management.Automation
 using namespace System.Management.Automation.Language

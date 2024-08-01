@@ -1,7 +1,5 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/debian
 {
-	"name": "devcontainer-dotfiles",
+	"name": "🚧 devcontainer-dotfiles",
 	"image": "mcr.microsoft.com/devcontainers/base:debian",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
@@ -29,7 +27,9 @@
 	"customizations": {
 		"vscode": {
 			"settings": {
-				"terminal.integrated.fontFamily": "MesloLGM Nerd Font, Menlo, Monaco, 'Courier New', monospace"
+				"terminal.integrated.fontFamily": "MesloLGM Nerd Font Mono, Menlo, Monaco, 'Courier New', monospace",
+				"terminal.integrated.defaultProfile.linux": "pwsh",
+				"powershell.integratedConsole.showOnStartup": false
 			}
 		}
 	},
