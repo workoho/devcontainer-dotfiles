@@ -5,4 +5,4 @@ Import-Module -Name posh-git -ErrorAction SilentlyContinue || (Microsoft.PowerSh
 Import-Module -Name Terminal-Icons -ErrorAction SilentlyContinue || (Microsoft.PowerShell.PSResourceGet\Install-PSResource -Name Terminal-Icons -Repository PSGallery -TrustRepository -Scope CurrentUser && Import-Module -Name Terminal-Icons)
 
 # Enable oh-my-posh theme
-oh-my-posh init pwsh --config "$env:HOME/.cache/oh-my-posh/themes/powerlevel10k_lite.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "$env:HOME/.cache/oh-my-posh/themes/powerlevel10k_lean.omp.json" | Invoke-Expression
