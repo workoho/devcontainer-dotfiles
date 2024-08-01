@@ -1,0 +1,69 @@
+# User identity
+[user]
+    name = {{ .name }}
+    email = {{ .email }}
+
+# Editor settings
+[core]
+    editor = code --wait  # Set Visual Studio Code as the default editor
+    autocrlf = input  # Handle line endings automatically for your platform (input for Linux/Mac, true for Windows)
+    # fileMode = false  # Ignore file mode changes
+
+# Credential helper
+[credential]
+    helper = cache --timeout=3600  # Cache your password for 1 hour
+
+# Safe directory configuration
+[safe]
+    directory = /workspaces
+
+# Worktree configurations
+[worktree]
+    autoSetupMerge = always  # Automatically setup merge configuration for new worktrees
+    autoSetupRebase = always  # Automatically setup rebase configuration for new worktrees
+
+# Alias commands for convenience
+[alias]
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    lg = log --graph --oneline --decorate --all
+    unstage = reset HEAD --
+    ss = status -s
+    cm = commit -m
+    ac = add . && commit -m
+    amend = commit --amend --no-edit
+    logp = log --pretty=format:'%h - %an, %ar : %s'
+    dc = diff --cached
+    rb = rebase
+    rbc = rebase --continue
+    rba = rebase --abort
+    rbs = rebase --skip
+
+# Fetch behavior
+[fetch]
+    prune = true  # Automatically prune stale references
+
+# Push behavior
+[push]
+    default = current  # Push the current branch to update a branch with the same name
+    prune = true  # Prune local references to remove deleted branches
+
+# Pull behavior
+[pull]
+    rebase = false  # Merge (the default strategy) on git pull
+
+# Merge behavior
+[merge]
+    ff = only  # Refuse to merge unless the current HEAD is already up-to-date or the merge can be resolved as a fast-forward.
+
+# Repository initialization
+[init]
+    defaultBranch = main  # Set the default branch name for new repositories
+
+# Include environment-specific configurations
+[includeIf "gitdir:/workspaces/"]
+    path = .gitconfig-devcontainers
+[includeIf "gitdir:/workspaces/"]
+    path = .gitconfig-codespaces
