@@ -1,5 +1,14 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
+PATH="$PATH:~/.local/bin"
+
+# Install oh-my-posh terminal theme
 curl -fsSL https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
-oh-my-posh font install meslo
+
+# Install Nerd Fonts
+oh-my-posh font install JetBrainsMono
+oh-my-posh font install Meslo
+if (command -v fc-cache); then
+    fc-cache -f -v
+fi
 {{ end -}}
