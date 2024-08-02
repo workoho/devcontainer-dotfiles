@@ -15,7 +15,7 @@
 
 # Safe directory configuration
 [safe]
-{{ range $index, $dir := lsdir "/workspaces" }}
+{{ range $index, $dir := (exec "bash" "-c" "ls -d /workspaces/*/ | xargs -n 1 basename").StdoutLines }}
     directory = /workspaces/{{ $dir }}
 {{ end }}
 
