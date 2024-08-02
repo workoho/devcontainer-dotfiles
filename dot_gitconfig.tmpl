@@ -15,10 +15,10 @@
 
 # Safe directory configuration
 [safe]
-{{- $safedirs := output "bash" "-c" "ls -d /workspaces/*/" | splitList \"\n\" -}}
-{{- range $index, $safedir := $safedirs }}
+{{- $dirs := output "bash" "-c" "ls -d /workspaces/*/" | replace "\n" " " -}}
+{{- range $index, $dir := splitList " " $dirs }}
     {{- if $dir }}
-    directory = {{ trimSuffix "/" $safedir }}
+    directory = {{ trimSuffix "/" $dir }}
     {{- end }}
 {{- end }}
 
