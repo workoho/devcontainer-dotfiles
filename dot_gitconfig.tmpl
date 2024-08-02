@@ -15,7 +15,9 @@
 
 # Safe directory configuration
 [safe]
-    directory = /workspaces
+{{ range $index, $dir := lsdir "/workspaces" }}
+    directory = /workspaces/{{ $dir }}
+{{ end }}
 
 # Worktree configurations
 [worktree]
