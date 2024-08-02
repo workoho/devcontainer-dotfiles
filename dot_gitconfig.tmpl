@@ -15,9 +15,12 @@
 
 # Safe directory configuration
 [safe]
-{{ range $index, $dir := (exec "bash" "-c" "ls -d /workspaces/*/ | xargs -n 1 basename").StdoutLines }}
-    directory = /workspaces/{{ $dir }}
-{{ end }}
+{{- $safedirs := output "bash" "-c" "ls -d /workspaces/*/" | splitList \"\n\" -}}
+{{- range $index, $safedir := $safedirs }}
+    {{- if $dir }}
+    directory = {{ trimSuffix "/" $safedir }}
+    {{- end }}
+{{- end }}
 
 # Worktree configurations
 [worktree]
