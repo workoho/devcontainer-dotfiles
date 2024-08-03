@@ -1,14 +1,22 @@
 {{ if eq .chezmoi.os "linux" -}}
-#!/bin/sh
-PATH="$PATH:~/.local/bin"
+#!/usr/bin/env bash
+PATH="$PATH:$HOME/.local/bin"
 
 # Install oh-my-posh terminal theme
-curl -fsSL https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
+curl -fsSL https://ohmyposh.dev/install.sh | bash -s -- -d "$HOME/.local/bin"
 
 # Install Nerd Fonts
-oh-my-posh font install JetBrainsMono
-oh-my-posh font install Meslo
-if (command -v fc-cache); then
+installedFonts=()
+if [[ $(command -v fc-list) ]]; then
+    mapfile -t installedFonts < <(fc-list : family | sort | uniq)
+fi
+if [[ ! " ${installedFonts[@]} " =~ " JetBrainsMono Nerd Font " ]]; then
+    oh-my-posh font install JetBrainsMono
+fi
+if [[ ! " ${installedFonts[@]} " =~ " MesloLGS Nerd Font " ]]; then
+    oh-my-posh font install Meslo
+fi
+if [[ $(command -v fc-cache) ]]; then
     fc-cache -f -v
 fi
 {{ end -}}

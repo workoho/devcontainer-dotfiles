@@ -1,9 +1,11 @@
 .devcontainer/
 .github/
 .vscode/
+scripts/
 .editorconfig
 .gitattributes
 .gitignore
+.gitkeep
 .markdownlint.jsonc
 install.sh
 LICENSE.txt

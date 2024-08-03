@@ -13,6 +13,8 @@ jobs:
         CODESPACES: true
     steps:
       - uses: actions/checkout@v4
-      - run: ./install.sh
+      - run: |
+          sudo mkdir -p /workspace/ci-test
+          ./install.sh
       - name: chezmoi data
         run: '"$HOME/.local/bin/chezmoi" data'

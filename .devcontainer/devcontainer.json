@@ -1,12 +1,19 @@
 {
   "name": "🚧 devcontainer-dotfiles",
-  "image": "mcr.microsoft.com/devcontainers/base:debian",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VARIANT": "ubuntu",
+      // set devcontainer-cli arg for Dockerfile
+      "devcontainercli": "true"
+    }
+  },
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
       "installZsh": true,
       "configureZshAsDefaultShell": true,
       "installOhMyZsh": true,
-      "installOhMyZshConfig": true,
+      "installOhMyZshConfig": false,
       "upgradePackages": true,
       "username": "vscode",
       "userUid": "automatic",
@@ -32,7 +39,7 @@
       ],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "pwsh",
-        "terminal.integrated.fontFamily": "'JetBrainsMono NFM', 'MesloLGMDZ Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+        "terminal.integrated.fontFamily": "'JetBrainsMono NFM', 'MesloLGM Nerd Font', Menlo, Monaco, 'Courier New', monospace",
         "terminal.integrated.fontSize": 13
       }
     }

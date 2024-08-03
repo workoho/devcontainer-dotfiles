@@ -40,3 +40,6 @@ if (Get-Module -Name Az.Accounts -ListAvailable) {
     Import-Module -Name Az.Tools.Predictor -ErrorAction SilentlyContinue || (Microsoft.PowerShell.PSResourceGet\Install-PSResource -Name Az.Tools.Predictor -Repository PSGallery -TrustRepository -Scope CurrentUser && Import-Module -Name Az.Tools.Predictor)
 }
 #endregion PSReadLine
+
+# Chezmoi command completion
+chezmoi completion powershell | Out-String | Invoke-Expression
