@@ -15,11 +15,15 @@
 
 # Safe directory configuration
 [safe]
-{{- $dirs := output "bash" "-c" "ls -d /workspaces/*/" | replace "\n" " " -}}
-{{- range $index, $dir := splitList " " $dirs }}
-    {{- if $dir }}
-    directory = {{ trimSuffix "/" $dir }}
+{{- if eq (output "bash" "-c" "[ -d /workspaces ] && echo exists || echo not_exists") "exists" }}
+    {{- $dirs := output "bash" "-c" "ls -d /workspaces/*/" | replace "\n" " " -}}
+    {{- range $dir := splitList " " $dirs }}
+        {{- if $dir }}
+        directory = {{ trimSuffix "/" $dir }}
+        {{- end }}
     {{- end }}
+{{- else }}
+# /workspaces directory does not exist
 {{- end }}
 
 # Worktree configurations
