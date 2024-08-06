@@ -1,0 +1,8 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env bash
+PATH="$PATH:$HOME/.local/bin"
+
+# Install oh-my-posh terminal theme
+mkdir -p "$HOME/.local/bin"
+curl -fsSL https://ohmyposh.dev/install.sh | bash -s -- -d "$HOME/.local/bin"
+{{ end -}}

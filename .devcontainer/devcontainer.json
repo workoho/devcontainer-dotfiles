@@ -39,7 +39,7 @@
       ],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "pwsh",
-        "terminal.integrated.fontFamily": "'JetBrainsMono NFM', 'MesloLGM Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+        "terminal.integrated.fontFamily": "'Cascadia Code', Menlo, Monaco, Consolas, 'Courier New', monospace",
         "terminal.integrated.fontSize": 13
       }
     }

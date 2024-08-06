@@ -1,0 +1,17 @@
+.zlogin
+.zpreztorc
+.zlogout
+
+.config/anyconnect
+.config/powerlevel10k
+.config/zsh
+
+.tmux.conf.d/os/ubuntu_client.conf
+.tmux.conf.d/system/client.conf
+.tmux-powerlinerc
+
+.local/bin/client
+.zsh/zshrc_client
+.zsh/zprofile_client
+
+.bash/client/bashrc
