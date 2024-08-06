@@ -11,7 +11,7 @@
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
       "installZsh": true,
-      "configureZshAsDefaultShell": true,
+      "configureZshAsDefaultShell": false,
       "installOhMyZsh": true,
       "installOhMyZshConfig": false,
       "upgradePackages": true,
@@ -19,7 +19,9 @@
       "userUid": "automatic",
       "userGid": "automatic"
     },
-    "ghcr.io/jpawlowski/devcontainer-features/powershell-extended:2": {}
+    "ghcr.io/jpawlowski/devcontainer-features/powershell-extended:2": {
+      "setUserDefaultShell": true
+    }
   },
   "postCreateCommand": "./install.sh",
   "customizations": {
@@ -30,10 +32,6 @@
         "github.vscode-github-actions",
         "lizebang.bash-extension-pack",
         "DavidAnson.vscode-markdownlint",
-        "p1c2u.docker-compose",
-        "ms-azuretools.vscode-docker",
-        "ms-python.python",
-        "ms-python.vscode-pylance",
         "ms-vscode-remote.remote-containers",
         "yzhang.markdown-all-in-one"
       ],
@@ -44,5 +42,8 @@
       }
     }
   },
-  "remoteUser": "vscode"
+  "remoteUser": "vscode",
+  "containerEnv": {
+		"POSH_THEME_NAME": "powerlevel10k_modern"
+	}
 }

@@ -5,6 +5,12 @@ using namespace System.Management.Automation.Language
 
 Write-Host "Loading profile from $($MyInvocation.MyCommand.Name)" -ForegroundColor Cyan
 
+#region Environment Variables
+if (-not $env:PATH.Contains("$($env:HOME)/.local/bin")) {
+    $env:PATH += ":$($env:HOME)/.local/bin"
+}
+#region Environment Variables
+
 #region PSReadLine
 # Options
 $PSROptions = @{
@@ -40,6 +46,9 @@ if (Get-Module -Name Az.Accounts -ListAvailable) {
     Import-Module -Name Az.Tools.Predictor -ErrorAction SilentlyContinue || (Microsoft.PowerShell.PSResourceGet\Install-PSResource -Name Az.Tools.Predictor -Repository PSGallery -TrustRepository -Scope CurrentUser && Import-Module -Name Az.Tools.Predictor)
 }
 #endregion PSReadLine
+
+# Git shell completion
+Import-Module -Name posh-git -ErrorAction SilentlyContinue || (Microsoft.PowerShell.PSResourceGet\Install-PSResource -Name posh-git -Repository PSGallery -TrustRepository -Scope CurrentUser && Import-Module -Name posh-git)
 
 # Chezmoi command completion
 chezmoi completion powershell | Out-String | Invoke-Expression

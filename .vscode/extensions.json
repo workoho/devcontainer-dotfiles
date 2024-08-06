@@ -1,11 +1,11 @@
 {
     "recommendations": [
+      "dbaeumer.vscode-eslint",
       "editorconfig.editorconfig",
-      "DavidAnson.vscode-markdownlint",
-      "p1c2u.docker-compose",
       "github.vscode-github-actions",
-      "ms-azuretools.vscode-docker",
+      "lizebang.bash-extension-pack",
+      "DavidAnson.vscode-markdownlint",
       "ms-vscode-remote.remote-containers",
       "yzhang.markdown-all-in-one"
-    ]
+  ]
 }
