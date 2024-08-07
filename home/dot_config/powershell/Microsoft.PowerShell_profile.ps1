@@ -15,6 +15,6 @@ $env:POSH_THEMES_PATH = "$env:HOME/.cache/oh-my-posh/themes"
 if ($env:POSH_THEME_NAME) {
     & ([ScriptBlock]::Create((oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/$env:POSH_THEME_NAME.omp.json" --print) -join "`n"))
 } else {
-    & ([ScriptBlock]::Create((oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/custom/devcontainers.omp.json" --print) -join "`n"))
+    & ([ScriptBlock]::Create((oh-my-posh init pwsh --config "$env:HOME/.config/oh-my-posh/themes/devcontainers.omp.json" --print) -join "`n"))
 }
 #endregion Theme
