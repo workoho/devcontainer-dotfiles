@@ -1,7 +1,26 @@
+{{- $gitHubUser := env "GITHUB_USER" -}}
+{{- $gitHubUserId := env "GITHUB_USER_ID" -}}
+{{- $gitHubServerUrl := env "GITHUB_SERVER_URL" | default "https://github.com" -}}
+{{- $gitHubDomain := trimPrefix "https://" $gitHubServerUrl -}}
+{{- $gitHubApiUrl := env "GITHUB_API_URL" | default "https://api.github.com" -}}
+{{- $gitCommitterName := env "GIT_COMMITTER_NAME" -}}
+{{- $gitCommitterEmail := env "GIT_COMMITTER_EMAIL" -}}
 # User identity
 [user]
+{{- if and (ne $gitCommitterName nil) (ne $gitCommitterName "") }}
+    name = {{ $gitCommitterName }}
+{{- else if and (ne $gitHubUser nil) (ne $gitHubUser "") }}
+    name = {{ $gitHubUser }}
+{{- else }}
     name = {{ .name }}
+{{- end }}
+{{- if and (ne $gitCommitterEmail nil) (ne $gitCommitterEmail "") }}
+    email = {{ $gitCommitterEmail }}
+{{- else if and (ne $gitHubUserId nil) (ne $gitHubUserId "") (ne $gitHubUser nil) (ne $gitHubUser "") }}
+    email = {{ $gitHubUserId }}+{{ $gitHubUser }}@users.noreply.{{ $gitHubDomain }}
+{{- else }}
     email = {{ .email }}
+{{- end }}
 
 # Editor settings
 [core]

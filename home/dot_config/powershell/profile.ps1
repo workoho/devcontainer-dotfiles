@@ -9,6 +9,9 @@ Write-Host "Loading profile from $($MyInvocation.MyCommand.Name)" -ForegroundCol
 if (-not $env:PATH.Contains("$($env:HOME)/.local/bin")) {
     $env:PATH += ":$($env:HOME)/.local/bin"
 }
+if (-not $env:USER && -not $env:USERNAME) {
+    $env:USER = $(whoami)
+}
 #region Environment Variables
 
 #region PSReadLine

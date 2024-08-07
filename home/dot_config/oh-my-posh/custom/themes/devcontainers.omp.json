@@ -1,0 +1,75 @@
+// Oh My Posh Theme based on - partly inspired by https://github.com/devcontainers/features/blob/main/src/common-utils/scripts/devcontainers.zsh-theme
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "terminal_background": "background",
+  "console_title_template": "{{ .Path }}",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "blue",
+          "style": "plain",
+          "template": "{{ .Name }}",
+          "type": "shell"
+        },
+        {
+          "foreground": "foreground",
+          "properties": {
+            "time_format": "15:04:05"
+          },
+          "style": "plain",
+          "template": " | <green>{{ .CurrentDate | date .Format }}</>",
+          "type": "time"
+        }
+      ],
+      "type": "rprompt"
+    },
+    {
+      "alignment": "left",
+      "newline": false,
+      "segments": [
+        {
+          "foreground": "green",
+          "style": "plain",
+          "template": "{{ if .Env.GITHUB_USERS }}@{{ .Env.GITHUB_USER }}{{ else if .UserName }}{{ .UserName }}{{ end }} ",
+          "type": "session"
+        },
+        {
+          "style": "plain",
+          "template": "{{ if gt .Code 0 }}<red><b>➜ </b>{{ else }}<black>➜ {{ end }}</>",
+          "type": "session"
+        },
+        {
+          "foreground": "blue",
+          "style": "plain",
+          "properties": {
+            "style": "mixed",
+            "mixed_threshold": 4
+          },
+          "template": "<b>{{ .Path }}</b> ",
+          "type": "path"
+        },
+        {
+          "properties": {
+            "branch_icon": "",
+            "fetch_status": true,
+            "fetch_stash_count": true,
+            "fetch_worktree_count": true
+          },
+          "style": "plain",
+          "template": "{{ if .HEAD }}<cyan>(<b><red>{{ .HEAD }}</></b>)</> {{ end }}",
+          "type": "git"
+        },
+        {
+          "foreground": "white",
+          "style": "plain",
+          "template": "$ ",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "version": 2
+}

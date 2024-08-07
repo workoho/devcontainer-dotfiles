@@ -61,8 +61,9 @@
   },
   "remoteUser": "vscode",
   "containerEnv": {
-		"POSH_THEME_NAME": "powerlevel10k_modern",
-    "GIT_COMMITTER_NAME": "John Doe",
-    "GIT_COMMITTER_EMAIL": "john.doe@example.com"
+		// "POSH_THEME_NAME": "powerlevel10k_modern"
+    // "GITHUB_USER": "github_username"
+    // "GIT_COMMITTER_NAME": "John Doe"
+    // "GIT_COMMITTER_EMAIL": "john.doe@example.com"
 	}
 }

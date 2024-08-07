@@ -42,3 +42,27 @@ data:
 edit:
   command: "code"
   args: [ "--wait" ]
+
+hooks:
+  apply:
+    pre:
+      command: bash
+      args:
+        - -c
+        - |
+          GITHUB_API_URL="${GITHUB_API_URL:-"https://api.github.com"}"
+          rm -f /tmp/github_user.json*
+          echo '{ "id": null }' > /tmp/github_user.json
+
+          if [ -n "$GITHUB_USER" ]; then
+              response=$(curl -fsSL -w "%{http_code}" "$GITHUB_API_URL/users/$GITHUB_USER" -o /tmp/github_user.json.tmp)
+              if [ "$response" -eq 200 ]; then
+                  mv /tmp/github_user.json.tmp /tmp/github_user.json
+              else
+                  rm -f /tmp/github_user.json.tmp
+                  echo "Failed to fetch GitHub user ID. HTTP status code: $response"
+                  exit 1
+              fi
+              GITHUB_USER_ID=$(cat /tmp/github_user.json | jq .id)
+              export GITHUB_USER_ID
+          fi
