@@ -18,4 +18,5 @@ if ($env:POSH_THEME_NAME) {
     & ([ScriptBlock]::Create((oh-my-posh init pwsh --config "$env:HOME/.config/oh-my-posh/themes/devcontainers.minimal.omp.json" --print) -join "`n"))
 }
 if ($env:POSH_DISABLE_UPGRADE_NOTICE -eq $true) { oh-my-posh disable notice }
+oh-my-posh completion powershell | Out-String | Invoke-Expression
 #endregion Theme
