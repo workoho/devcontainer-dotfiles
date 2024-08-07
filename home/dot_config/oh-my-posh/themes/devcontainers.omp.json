@@ -55,7 +55,7 @@
           "trailing_diamond": "",
           "foreground": "black",
           "background": "lightRed",
-          "template": "<f></f> root"
+          "template": "<f>🦸</f> root"
         },
         {
           "foreground": "green",
