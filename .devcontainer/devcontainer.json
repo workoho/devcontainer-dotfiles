@@ -51,7 +51,7 @@
         "yzhang.markdown-all-in-one"
       ],
       "settings": {
-        "editor.fontFamily": "'Cascadia Code', Menlo, Monaco, Consolas, 'Courier New', monospace",
+        "editor.fontFamily": "'Cascadia Code NF', Menlo, Monaco, Consolas, 'Courier New', monospace",
         "editor.fontLigatures": true,
         "terminal.integrated.defaultProfile.linux": "pwsh",
         "terminal.integrated.fontFamily": "'Cascadia Mono NF', Menlo, Monaco, Consolas, 'Courier New', monospace",
