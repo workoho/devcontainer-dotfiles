@@ -18,8 +18,12 @@ for Microsoft 365, which can be found here:
 ## Use Your Own Dotfiles
 
 You may clone this repository to make adjustments for your own experience.
+
 If you do so, change the `dotfiles.repository` in your VS Code settings. Look for them in the
 `.devcontainer/devcontainer.json` file in the section `customizations.vscode.settings`.
+
+Note that when using GitHub Codespaces, you will also need to change the `repository` value in the feature section for the
+`ghcr.io/jpawlowski/devcontainer-features/codespace-dotfiles` feature.
 
 ## Daily Operations
 

@@ -19,11 +19,25 @@
       "userUid": "automatic",
       "userGid": "automatic"
     },
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "version": "latest"
+    },
+    "ghcr.io/jpawlowski/devcontainer-features/cascadia-code:1": {
+      "version": "latest",
+      "installFontconfig": true,
+      "installStaticTTF": true,
+      "installStaticOTF": false,
+      "installStaticWOFF2": false,
+      "installVariableTTF": false,
+      "installVariableWOFF2": false
+    },
     "ghcr.io/jpawlowski/devcontainer-features/powershell-extended:2": {
       "setUserDefaultShell": true
-    }
+    },
+    "ghcr.io/devcontainers-contrib/features/shfmt:1": {}
   },
-  "postCreateCommand": "./install.sh",
+  "postCreateCommand": "./install.sh", // Immediate local testing of the dotfiles directly
   "customizations": {
     "vscode": {
       "extensions": [
@@ -33,17 +47,22 @@
         "lizebang.bash-extension-pack",
         "DavidAnson.vscode-markdownlint",
         "ms-vscode-remote.remote-containers",
+        "vscode-icons-team.vscode-icons",
         "yzhang.markdown-all-in-one"
       ],
       "settings": {
+        "editor.fontFamily": "'Cascadia Code', Menlo, Monaco, Consolas, 'Courier New', monospace",
+        "editor.fontLigatures": true,
         "terminal.integrated.defaultProfile.linux": "pwsh",
-        "terminal.integrated.fontFamily": "'Cascadia Code', Menlo, Monaco, Consolas, 'Courier New', monospace",
-        "terminal.integrated.fontSize": 13
+        "terminal.integrated.fontFamily": "'Cascadia Mono NF', Menlo, Monaco, Consolas, 'Courier New', monospace",
+        "terminal.integrated.fontSize": 15
       }
     }
   },
   "remoteUser": "vscode",
   "containerEnv": {
-		"POSH_THEME_NAME": "powerlevel10k_modern"
+		"POSH_THEME_NAME": "powerlevel10k_modern",
+    "GIT_COMMITTER_NAME": "John Doe",
+    "GIT_COMMITTER_EMAIL": "john.doe@example.com"
 	}
 }

@@ -3,21 +3,28 @@
 
 {{- /* Initializes the name variable with a default value */ -}}
 {{- $name := "Your Name" -}}
+{{- $gitCommitterName := env "GIT_COMMITTER_NAME" -}}
 {{- /* If name was previously set, reuses it */ -}}
 {{- if hasKey . "name" -}}
 {{-   $name = .name -}}
+{{- /* Otherwise, if GIT_COMMITTER_NAME is set */ -}}
+{{- else if and (ne $gitCommitterName nil) (ne $gitCommitterName "") -}}
+{{-   $name = $gitCommitterName -}}
 {{- /* Otherwise, if running interactively, prompts for a name */ -}}
 {{- else if $interactive -}}
 {{-   writeToStdout "\n\n                          Terminal dotfile Setup\n" -}}
 {{-   writeToStdout "--------------------------------------------------------------------------------\n\n" -}}
-{{-   writeToStdout "ℹ️  Answer the following questions so their data can be integrated to your dotfiles afterwards:\n\n" -}}
+{{-   writeToStdout "ℹ️ Answer the following questions so their data can be integrated to your dotfiles afterwards:\n\n" -}}
 {{-   $name = promptString "Your full name" $name -}}
 {{- end -}}
 
 {{- /* Does the same for the email */ -}}
 {{- $email := "your@email.com" -}}
+{{- $gitCommitterEmail := env "GIT_COMMITTER_EMAIL" -}}
 {{- if hasKey . "email" -}}
 {{-   $email = .email -}}
+{{- else if and (ne $gitCommitterEmail nil) (ne $gitCommitterEmail "") -}}
+{{-   $email = $gitCommitterEmail -}}
 {{- else if $interactive -}}
 {{-   $email = promptString "Your email address" $email -}}
 {{- end -}}
