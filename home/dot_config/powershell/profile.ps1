@@ -51,7 +51,7 @@ if (Get-Module -Name Az.Accounts -ListAvailable) {
 #endregion PSReadLine
 
 # Git shell completion
-Import-Module -Name posh-git -ErrorAction SilentlyContinue || (Microsoft.PowerShell.PSResourceGet\Install-PSResource -Name posh-git -Repository PSGallery -TrustRepository -Scope CurrentUser && Import-Module -Name posh-git)
+if ($env:POSH_IMPORT_POSHGIT -eq $true) { Import-Module -Name posh-git -ErrorAction SilentlyContinue || (Microsoft.PowerShell.PSResourceGet\Install-PSResource -Name posh-git -Repository PSGallery -TrustRepository -Scope CurrentUser && Import-Module -Name posh-git) }
 
 # Chezmoi command completion
 chezmoi completion powershell | Out-String | Invoke-Expression

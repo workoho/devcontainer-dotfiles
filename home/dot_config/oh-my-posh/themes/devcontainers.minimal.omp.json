@@ -39,7 +39,7 @@
           "type": "project",
           "style": "plain",
           "foreground": "darkGray",
-          "template": "{{ if .Error }} <red><b></b></> <lightRed>{{ .Error }}</>{{ else }} <lightYellow><b></b></>{{ if .Version }} {{.Version}}{{ end }}{{ if .Name }} <b>{{ .Name }}</b>{{ end }}{{ end }}\n"
+          "template": "{{ if .Error }}\uD83D\uDCE6 <lightRed>{{ .Error }}</>{{ else }}\uD83D\uDCE6{{ if .Version }} {{.Version}}{{ end }}{{ if .Name }} <b>{{ .Name }}</b>{{ end }}{{ end }}\n"
         }
       ],
       "type": "prompt"
@@ -51,21 +51,21 @@
         {
           "type": "root",
           "style": "diamond",
-          "leading_diamond": "",
-          "trailing_diamond": "",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
           "foreground": "black",
           "background": "lightRed",
-          "template": "<f>🦸</f> root"
+          "template": "<f>\uD83E\uDDB8</f> {{ if eq .OS \"Windows\" }}Elevated{{ else }}root{{ end}}"
         },
         {
           "foreground": "green",
           "style": "plain",
-          "template": "{{ if not .Root }}{{ if .Env.GITHUB_USER }}@{{ .Env.GITHUB_USER }}{{ else if .UserName }}{{ .UserName }}{{ end }}{{ end }} ",
+          "template": "{{ if not .Root }}{{ if .Env.GITHUB_USER }}@{{ .Env.GITHUB_USER }}{{ else if .UserName }}{{ .UserName }}{{ end }}{{ end }}",
           "type": "session"
         },
         {
           "style": "plain",
-          "template": "{{ if .Root }} {{ end }}{{ if gt .Code 0 }}<red><b>➜ </b>{{ else }}<black>➜ {{ end }}</>",
+          "template": " {{ if gt .Code 0 }}<red><b>\u279c</b>{{ else }}<black>\u279c{{ end }}</>",
           "type": "session"
         },
         {
@@ -75,96 +75,35 @@
             "style": "mixed",
             "mixed_threshold": 4
           },
-          "template": "<b>{{ .Path }}</b>",
+          "template": " <b>{{ .Path }}</b>",
           "type": "path"
         },
         {
           "properties": {
-            "branch_icon": "",
-            "fetch_status": true,
-            "fetch_stash_count": true,
-            "fetch_worktree_count": true
+            "full_branch_path": true,
+            "native_fallback": true
           },
           "style": "plain",
-          "template": "{{ if .HEAD }} <cyan>(<b><red>{{ .HEAD }}</></b>)</>{{ end }}",
+          "template": " <cyan>(<b><red>{{ .HEAD }}</></b>)</>",
           "type": "git"
         },
         {
           "foreground": "white",
           "style": "plain",
-          "template": " ❯ ",
+          "template": " \u276F ",
           "type": "text"
         }
       ],
       "type": "prompt"
     }
   ],
-  "tooltips": [
-    {
-      "type": "git",
-      "tips": [
-        "git"
-      ],
-      "style": "diamond",
-      "foreground": "black",
-      "background": "lightYellow",
-      "leading_diamond": "",
-      "trailing_diamond": "",
-      "template": "{{ .HEAD }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}",
-      "properties": {
-        "fetch_status": true,
-        "fetch_upstream_icon": true
-      }
-    },
-    {
-      "type": "aws",
-      "tips": [
-        "aws"
-      ],
-      "style": "plain",
-      "foreground": "#FFA400",
-      "template": " {{.Profile}}{{if .Region}}@{{.Region}}{{end}}"
-    },
-    {
-      "type": "az",
-      "tips": [
-        "az",
-        "terraform"
-      ],
-      "style": "plain",
-      "foreground": "lightCyan",
-      "template": " {{ .Name }}"
-    },
-    {
-      "type": "azd",
-      "tips": [
-        "azd"
-      ],
-      "style": "plain",
-      "foreground": "lightCyan",
-      "template": " {{ .DefaultEnvironment }}"
-    },
-    {
-      "type": "azfunc",
-      "tips": [
-        "func"
-      ],
-      "properties": {
-        "fetch_version": true,
-        "display_mode": "files"
-      },
-      "style": "plain",
-      "foreground": "#FEAC19",
-      "template": " {{ .Full }}"
-    }
-  ],
   "valid_line": {
     "foreground": "lightGreen",
-    "template": "<b>\uf42e</b> "
+    "template": "\u276F "
   },
   "error_line": {
       "foreground": "lightRed",
-      "template": "<b>\ue009</b> "
+      "template": "\u276F "
   },
- "version": 2
+  "version": 2
 }

@@ -33,6 +33,7 @@
       "installVariableWOFF2": false
     },
     "ghcr.io/jpawlowski/devcontainer-features/powershell-extended:2": {
+      "resources": "Az.Accounts; ExchangeOnlineManagement; Microsoft.Graph.Authentication",
       "setUserDefaultShell": true
     },
     "ghcr.io/devcontainers-contrib/features/shfmt:1": {}
@@ -61,6 +62,8 @@
   },
   "remoteUser": "vscode",
   "containerEnv": {
+    "POSH_IMPORT_POSHGIT": "True"
+    // "POSH_IMPORT_TERMINAL_ICONS": "True"
 		// "POSH_THEME_NAME": "powerlevel10k_modern"
     // "GITHUB_USER": "github_username"
     // "GIT_COMMITTER_NAME": "John Doe"
