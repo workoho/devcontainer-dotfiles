@@ -23,18 +23,8 @@
     "ghcr.io/devcontainers/features/github-cli:1": {
       "version": "latest"
     },
-    "ghcr.io/jpawlowski/devcontainer-features/cascadia-code:1": {
-      "version": "latest",
-      "installFontconfig": true,
-      "installStaticTTF": true,
-      "installStaticOTF": false,
-      "installStaticWOFF2": false,
-      "installVariableTTF": false,
-      "installVariableWOFF2": false
-    },
     "ghcr.io/jpawlowski/devcontainer-features/powershell-extended:2": {
-      "resources": "Az.Accounts; ExchangeOnlineManagement; Microsoft.Graph.Authentication",
-      "setUserDefaultShell": true
+      "resources": "Az.Accounts; Microsoft.Graph.Authentication"
     },
     "ghcr.io/devcontainers-contrib/features/shfmt:1": {}
   },
@@ -62,9 +52,8 @@
   },
   "remoteUser": "vscode",
   "containerEnv": {
-    "POSH_IMPORT_POSHGIT": "True"
-    // "POSH_IMPORT_TERMINAL_ICONS": "True"
-		// "POSH_THEME_NAME": "powerlevel10k_modern"
+    "PSPROFILE_TERMINAL_COMPLETION_CHEZMOI": "true",
+    "PSPROFILE_VSCODE_TERMINAL_COMPLETION_CHEZMOI": "true"
     // "GITHUB_USER": "github_username"
     // "GIT_COMMITTER_NAME": "John Doe"
     // "GIT_COMMITTER_EMAIL": "john.doe@example.com"

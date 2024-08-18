@@ -1,0 +1,10 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env bash
+PATH="$PATH:$HOME/.local/bin"
+
+# Install Oh My Posh if not present
+if ! command -v oh-my-posh >/dev/null 2>&1; then
+    mkdir -p "$HOME/.local/bin"
+    curl -fsSL https://ohmyposh.dev/install.sh | bash -s -- -d "$HOME/.local/bin"
+fi
+{{ end -}}
