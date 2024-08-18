@@ -52,7 +52,13 @@
   },
   "remoteUser": "vscode",
   "containerEnv": {
+    "PSPROFILE_AUTOUPDATE_MODULEHELP": "true",
+    "PSPROFILE_PSREADLINE_PREDICTION_VIEWSTYLE": "ListView",
+    "PSPROFILE_POSH_THEME": "devcontainers.minimal.omp.json",
     "PSPROFILE_TERMINAL_COMPLETION_CHEZMOI": "true",
+    "PSPROFILE_VSCODE_AUTOUPDATE_MODULEHELP": "true",
+    "PSPROFILE_VSCODE_PSREADLINE_PREDICTION_VIEWSTYLE": "ListView",
+    "PSPROFILE_VSCODE_POSH_THEME": "devcontainers.minimal.omp.json",
     "PSPROFILE_VSCODE_TERMINAL_COMPLETION_CHEZMOI": "true"
     // "GITHUB_USER": "github_username"
     // "GIT_COMMITTER_NAME": "John Doe"
